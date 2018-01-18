@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Line from 'react-chartjs';
+import {Line} from 'react-chartjs';
 
 var chartData = {
 	labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -27,14 +27,12 @@ var chartData = {
 	]
 };
 
-var LineChart = require('react-chartjs').Line;
-
 class UpgradeLineChart extends Component {
 
     render() {
         return (
             <div>
-                <LineChart data={chartData} width="600" height="250"/>
+                <Line data={chartData} width="600" height="250"/>
             </div>
         );
     }
