@@ -1,17 +1,32 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {Accordion, Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import DataLocation from './components/DataLocation';
+import UpgradeLineChart from './components/UpgradeLineChart';
 
 class App extends Component {
 
     render() {
         return(
-            <div class="ui main text container">
-                <h1 class="ui header">Customization Impact Analysis</h1>
-                <DataLocation dataLocation="BaseLine Site Info"/>
-                <DataLocation dataLocation="Current Site Info"/>
-            </div>
+            <Accordion fluid styled>
+                <Accordion.Title active={false} index={0} onClick={this.handleClick}>
+                    <Icon name='dropdown' />
+                    Analyze Impact of Customization
+                </Accordion.Title>
+                <Accordion.Content active={false}>
+                    <DataLocation dataLocation="Baseline Site Info"/>
+                    <DataLocation dataLocation="Current Site Info"/>
+                  <p>Hello</p>
+                </Accordion.Content>
+                <Accordion.Title active={true} index={1} onClick={this.handleClick}>
+                    <Icon name='dropdown' />
+                    Review Marker Cap
+                </Accordion.Title>
+                <Accordion.Content active={true}>
+                    <UpgradeLineChart/>
+                </Accordion.Content>
+            </Accordion>
         );
     }
 
