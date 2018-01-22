@@ -5,13 +5,10 @@
   "homepage": "https://abhayshah1.github.io/markercap/",
   "dependencies": {
     "chart.js": "^1.1.1",
-    "fusioncharts": "^3.12.2",
-    "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-chartjs": "^1.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0",
-    "semantic-ui": "^2.2.13",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.2"
   },
