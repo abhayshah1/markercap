@@ -4,6 +4,7 @@ import {Accordion, Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import DataLocation from './components/DataLocation';
 import UpgradeLineChart from './components/UpgradeLineChart';
+import MarkerCapSection from './components/MarkerCapSection';
 
 class App extends Component {
 
@@ -24,7 +25,7 @@ class App extends Component {
                     Review Marker Cap
                 </Accordion.Title>
                 <Accordion.Content active={true}>
-                    <UpgradeLineChart/>
+                    <MarkerCapSection/>
                 </Accordion.Content>
             </Accordion>
         );
