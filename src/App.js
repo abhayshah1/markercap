@@ -18,7 +18,6 @@ class App extends Component {
                 <Accordion.Content active={false}>
                     <DataLocation dataLocation="Baseline Site Info"/>
                     <DataLocation dataLocation="Current Site Info"/>
-                  <p>Hello</p>
                 </Accordion.Content>
                 <Accordion.Title active={true} index={1} onClick={this.handleClick}>
                     <Icon name='dropdown' />
