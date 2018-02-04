@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Line} from 'react-chartjs';
+import {Line,Doughnut} from 'react-chartjs';
 
 var symetraData = 
 {
@@ -51,6 +51,10 @@ var initialChartData = {
 	]
 };
 
+var chartOptions = {
+	bezierCurve : false
+}
+
 class UpgradeLineChart extends Component {
 
 	constructor(props) {
@@ -86,7 +90,7 @@ class UpgradeLineChart extends Component {
     render() {
         return (
             <div>
-                <Line data={this.state.chartData} width="600" height="250" redraw/>
+                <Line data={this.state.chartData} options={chartOptions} width="600" height="250" redraw/>
             </div>
         );
     }
