@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Line,Doughnut} from 'react-chartjs';
+import {Line} from 'react-chartjs-2';
 
 var symetraData = 
 {
