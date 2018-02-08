@@ -21,12 +21,9 @@ class MarkerCapSection extends Component {
 
     render() {
         return (
-            <Grid container columns={3}>
+            <Grid container columns={2}>
                 <Grid.Column>
                     <UpgradeLineChart companyID={this.state.companyID}/>
-                </Grid.Column>
-                <Grid.Column>
-                    &nbsp;
                 </Grid.Column>
                 <Grid.Column>
                     <Dropdown placeholder='Company List' fluid selection options={CompanyList} onChange={this.handleChange}/>

@@ -4,24 +4,12 @@ import {Line} from 'react-chartjs-2';
 var symetraData = 
 {
 	label: "Symetra",
-	fillColor: "rgba(151,187,205,0.2)",
-	strokeColor: "rgba(151,187,205,1)",
-	pointColor: "rgba(151,187,205,1)",
-	pointStrokeColor: "#fff",
-	pointHighlightFill: "#fff",
-	pointHighlightStroke: "rgba(151,187,205,1)",
 	data: [0, 0, 0, 5, 3, 0, 0]
 };
 
 var farmersData = 		
 {
 	label: "Farmers",
-	fillColor: "rgba(220,220,220,0.2)",
-	strokeColor: "rgba(220,220,220,1)",
-	pointColor: "rgba(220,220,220,1)",
-	pointStrokeColor: "#fff",
-	pointHighlightFill: "#fff",
-	pointHighlightStroke: "rgba(220,220,220,1)",
 	data: [10, 10, 15, 10, 10, 10, 9]
 };
 
@@ -30,29 +18,22 @@ var initialChartData = {
 	datasets: [
 		{
 			label: "Farmers",
-			fillColor: "rgba(220,220,220,0.2)",
-			strokeColor: "rgba(220,220,220,1)",
-			pointColor: "rgba(220,220,220,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(220,220,220,1)",
-			data: [10, 10, 15, 10, 10, 10, 9]
+			data: [10, 10, 15, 10, 10, 10, 9],
+			fill : "origin"
 		},
 		{
 			label: "Symetra",
-			fillColor: "rgba(151,187,205,0.2)",
-			strokeColor: "rgba(151,187,205,1)",
-			pointColor: "rgba(151,187,205,1)",
-			pointStrokeColor: "#fff",
-			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(151,187,205,1)",
 			data: [0, 0, 0, 5, 3, 0, 0]
 		}
 	]
 };
 
 var chartOptions = {
-	bezierCurve : false
+	elements : {
+		line : {
+			tension : 0
+		}
+	}
 }
 
 class UpgradeLineChart extends Component {
