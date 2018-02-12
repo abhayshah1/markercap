@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Grid,Select, Dropdown} from 'semantic-ui-react';
-import UpgradeLineChart from '../components/UpgradeLineChart';
+import DeviationLineChart from '../components/DeviationLineChart';
 
 const CompanyList = [
     {text: 'All', value: 'ALL'},   
@@ -23,7 +23,7 @@ class MarkerCapSection extends Component {
         return (
             <Grid container columns={2}>
                 <Grid.Column>
-                    <UpgradeLineChart companyID={this.state.companyID}/>
+                    <DeviationLineChart companyID={this.state.companyID}/>
                 </Grid.Column>
                 <Grid.Column>
                     <Dropdown placeholder='Company List' fluid selection options={CompanyList} onChange={this.handleChange}/>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Accordion, Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import DataLocation from './components/DataLocation';
-import UpgradeLineChart from './components/UpgradeLineChart';
+import UpgradeLineChart from './components/DeviationLineChart';
 import MarkerCapSection from './components/MarkerCapSection';
 
 class App extends Component {

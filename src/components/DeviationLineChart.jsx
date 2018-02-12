@@ -4,28 +4,23 @@ import {Line} from 'react-chartjs-2';
 var symetraData = 
 {
 	label: "Symetra",
-	data: [0, 0, 0, 5, 3, 0, 0]
+	data: [0, 0, 0, 5, 3, 0, 0],
+	fill: false,
+	backgroundColor: 'rgba(75,192,192,0.4)',
+    borderColor: 'rgba(75,192,192,1)'
 };
 
 var farmersData = 		
 {
 	label: "Farmers",
-	data: [10, 10, 15, 10, 10, 10, 9]
+	data: [10, 10, 15, 10, 10, 10, 9],
+	fill: false,
+	backgroundColor: 'rgba(100,100,192,0.4)',
+    borderColor: 'rgba(100,100,192,1)'
 };
 
 var initialChartData = {
-	labels: ["2/3/2018", "2/10/2018", "2/17/2018", "2/24/2018", "3/3/2018", "3/10/2018", "3/17/2018"],
-	datasets: [
-		{
-			label: "Farmers",
-			data: [10, 10, 15, 10, 10, 10, 9],
-			fill : "origin"
-		},
-		{
-			label: "Symetra",
-			data: [0, 0, 0, 5, 3, 0, 0]
-		}
-	]
+	labels: ["2/3/2018", "2/10/2018", "2/17/2018", "2/24/2018", "3/3/2018", "3/10/2018", "3/17/2018"]
 };
 
 var chartOptions = {
@@ -36,7 +31,7 @@ var chartOptions = {
 	}
 }
 
-class UpgradeLineChart extends Component {
+class DeviationLineChart extends Component {
 
 	constructor(props) {
 		super(props);
@@ -44,7 +39,6 @@ class UpgradeLineChart extends Component {
 			companyID : props.companyID,
 			chartData : initialChartData
 		};
-		console.log("UpgradeLineChart" + props.companyID);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -78,4 +72,4 @@ class UpgradeLineChart extends Component {
 
 }
 
-export default UpgradeLineChart;
+export default DeviationLineChart;
