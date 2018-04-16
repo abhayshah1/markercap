@@ -19,6 +19,14 @@ var farmersData =
     borderColor: 'rgba(100,100,192,1)'
 };
 
+var thresholdData = 
+{
+	label: "Threshold",
+	data: [11,11,11,11,11,11,11],
+	fill: false,
+	borderDash: [5,15]
+}
+
 var initialChartData = {
 	labels: ["2/3/2018", "2/10/2018", "2/17/2018", "2/24/2018", "3/3/2018", "3/10/2018", "3/17/2018"]
 };
@@ -54,12 +62,9 @@ class DeviationLineChart extends Component {
 			newDataSets.push( farmersData );
 			newDataSets.push( symetraData );
 		}
+		newDataSets.push( thresholdData );
 		initialChartData.datasets = newDataSets;
 		this.setState( {chartData : initialChartData} );
-	}
-
-	componentDidMount() {
-		console.log("UpgradeLineChart mount");
 	}
 
     render() {
