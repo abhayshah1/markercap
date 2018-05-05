@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
+import axios from 'axios';
 
 var symetraData = 
 {
@@ -13,7 +14,7 @@ var symetraData =
 var farmersData = 		
 {
 	label: "Farmers",
-	data: [10, 10, 15, 10, 10, 10, 9],
+	//data: [10, 10, 15, 10, 10, 10, 9],
 	fill: false,
 	backgroundColor: 'rgba(100,100,192,0.4)',
     borderColor: 'rgba(100,100,192,1)'
@@ -53,6 +54,11 @@ class DeviationLineChart extends Component {
 		this.setState( {companyID : nextProps.companyID} );
 		var newDataSets = [];
 		if ( nextProps.companyID === 'FNWL' ) {
+			// get data for FNWL
+			axios.get('http://localhost:3001/markercap/FNWL')
+				.then( res => {
+					farmersData = res.data;
+				});
 			newDataSets.push( farmersData );
 		}
 		else if ( nextProps.companyID === 'SLIC' ) {
