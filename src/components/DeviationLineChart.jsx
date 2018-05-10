@@ -57,7 +57,7 @@ class DeviationLineChart extends Component {
 			// get data for FNWL
 			axios.get('http://localhost:3001/markercap/FNWL')
 				.then( res => {
-					farmersData = res.data;
+					farmersData.data = res.data.data;
 				});
 			newDataSets.push( farmersData );
 		}
