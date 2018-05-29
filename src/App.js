@@ -5,6 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 import DataLocation from './components/DataLocation';
 import UpgradeLineChart from './components/DeviationLineChart';
 import MarkerCapSection from './components/MarkerCapSection';
+import ChangeTypeGrid from './components/ChangeTypeGrid';
 
 class App extends Component {
 
@@ -34,6 +35,13 @@ class App extends Component {
                 </Accordion.Title>
                 <Accordion.Content active={this.state.activeIndex === 1}>
                     <MarkerCapSection/>
+                </Accordion.Content>
+                <Accordion.Title active={this.state.activeIndex === 2} index={2} onClick={this.handleClick}>
+                    <Icon name='dropdown' />
+                    Marker Cap Details
+                </Accordion.Title>
+                <Accordion.Content active={this.state.activeIndex === 2}>
+                    <ChangeTypeGrid/>
                 </Accordion.Content>
             </Accordion>
         );
