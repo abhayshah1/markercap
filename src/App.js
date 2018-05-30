@@ -19,23 +19,29 @@ class App extends Component {
 
     render() {
         return(
-            <Accordion fluid styled>
-                <Accordion.Title active={this.state.activeIndex === 0} index={0} onClick={this.handleClick}>
-                    <Icon name='dropdown' />
-                    Analyze Impact of Customization
-                </Accordion.Title>
-                <Accordion.Content active={this.state.activeIndex === 0}>
-                    <DataLocation dataLocation="Baseline Site Info"/>
-                    <DataLocation dataLocation="Current Site Info"/>
-                </Accordion.Content>
-                <Accordion.Title active={this.state.activeIndex === 1} index={1} onClick={this.handleClick}>
-                    <Icon name='dropdown' />
-                    Review Marker Cap
-                </Accordion.Title>
-                <Accordion.Content active={this.state.activeIndex === 1}>
-                    <MarkerCapSection/>
-                </Accordion.Content>
-            </Accordion>
+            <div>
+                <header class="App-header">
+                    <img src="http://www.fasttechnology.com/app_media/images/fastTechnologyLogo.png"/>
+                    <h1>Upgrade Estimator</h1>
+                </header>
+                <Accordion fluid styled>
+                    <Accordion.Title active={this.state.activeIndex === 0} index={0} onClick={this.handleClick}>
+                        <Icon name='dropdown' />
+                        Analyze Impact of Customization
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.activeIndex === 0}>
+                        <DataLocation dataLocation="Baseline Site Info"/>
+                        <DataLocation dataLocation="Current Site Info"/>
+                    </Accordion.Content>
+                    <Accordion.Title active={this.state.activeIndex === 1} index={1} onClick={this.handleClick}>
+                        <Icon name='dropdown' />
+                        Review Marker Cap
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.activeIndex === 1}>
+                        <MarkerCapSection/>
+                    </Accordion.Content>
+                </Accordion>
+            </div>
         );
     }
 
