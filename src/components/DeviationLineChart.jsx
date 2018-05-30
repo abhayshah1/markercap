@@ -55,9 +55,9 @@ class DeviationLineChart extends Component {
 		var newDataSets = [];
 		if ( nextProps.companyID === 'FNWL' ) {
 			// get data for FNWL
-			axios.get('http://localhost:3001/markercap/FNWL')
+			axios.get(process.env.REACT_APP_MARKERCAP_URL+'/FNWL')
 				.then( res => {
-					farmersData = res.data;
+					farmersData.data = res.data.data;
 				});
 			newDataSets.push( farmersData );
 		}
