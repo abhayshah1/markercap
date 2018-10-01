@@ -58,8 +58,11 @@ class DeviationLineChart extends Component {
 			axios.get(process.env.REACT_APP_MARKERCAP_URL+'/FNWL')
 				.then( res => {
 					farmersData.data = res.data.data;
+					newDataSets.push( farmersData );
+					initialChartData.datasets = newDataSets;
+					// update the state to refresh the component
+					this.setState( {chartData : initialChartData});
 				});
-			newDataSets.push( farmersData );
 		}
 		else if ( nextProps.companyID === 'SLIC' ) {
 			newDataSets.push ( symetraData );
