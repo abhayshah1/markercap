@@ -29,7 +29,7 @@ var thresholdData =
 }
 
 var initialChartData = {
-	labels: ["2/3/2018", "2/10/2018", "2/17/2018", "2/24/2018", "3/3/2018", "3/10/2018", "3/17/2018"]
+	//labels: ["2/3/2018", "2/10/2018", "2/17/2018", "2/24/2018", "3/3/2018", "3/10/2018", "3/17/2018"]
 };
 
 var chartOptions = {
@@ -60,6 +60,7 @@ class DeviationLineChart extends Component {
 					farmersData.data = res.data.data;
 					newDataSets.push( farmersData );
 					initialChartData.datasets = newDataSets;
+					initialChartData.labels = res.data.daterange;
 					// update the state to refresh the component
 					this.setState( {chartData : initialChartData});
 				});
