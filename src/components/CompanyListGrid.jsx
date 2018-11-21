@@ -17,6 +17,7 @@ class CompanyListGrid extends Component {
         .then( res => {
             this.setState( {companyList : res.data});
         });
+        console.log( store.getState() );
     }
 
     render() {

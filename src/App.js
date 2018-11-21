@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import {upgradeApp} from './reducers';
 import {Accordion, Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import DataLocation from './components/DataLocation';
-import UpgradeLineChart from './components/DeviationLineChart';
 import MarkerCapSection from './components/MarkerCapSection';
 import ChangeTypeGrid from './components/ChangeTypeGrid';
 
@@ -12,6 +13,8 @@ class App extends Component {
     constructor( props ) {
         super(props);
         this.state = {activeIndex : 0};
+        // initialize the store
+        const store = createStore(upgradeApp);
     }
 
     handleClick = ( e, data ) => {

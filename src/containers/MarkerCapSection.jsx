@@ -12,10 +12,6 @@ class MarkerCapSection extends Component {
         this.companyList = [];
     }
 
-    componentDidMount() {
-        // load the company list from the  server
-
-    }
 
     handleChange = (event, data) => {
         this.setState({'companyID':data.value});
