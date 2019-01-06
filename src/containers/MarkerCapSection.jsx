@@ -8,8 +8,6 @@ class MarkerCapSection extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {'companyID': 'None'};
-        this.companyList = [];
     }
 
 
@@ -21,7 +19,7 @@ class MarkerCapSection extends Component {
         return (
             <Grid container columns={2}>
                 <Grid.Column>
-                    <DeviationLineChart companyID={this.state.companyID}/>
+                    <DeviationLineChart companyID={'NONE'}/>
                 </Grid.Column>
                 <Grid.Column>
                     <CompanyListGrid/>

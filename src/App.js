@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import {upgradeApp} from './reducers';
+import {loadCompanyList, toggleCompanyToPlot} from './actions/Action';
+import {upgradeApp} from './reducers/Reducer';
 import {Accordion, Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import DataLocation from './components/DataLocation';
-import MarkerCapSection from './components/MarkerCapSection';
+import MarkerCapSection from './containers/MarkerCapSection';
 import ChangeTypeGrid from './components/ChangeTypeGrid';
 
 class App extends Component {
@@ -13,8 +13,14 @@ class App extends Component {
     constructor( props ) {
         super(props);
         this.state = {activeIndex : 0};
-        // initialize the store
-        const store = createStore(upgradeApp);
+        // // initialize the store
+        // const store = createStore(upgradeApp);
+        // // testing
+        // console.log("Testing" + store.getState());
+        // const unsubscribe = store.subscribe(() => console.log(store.getState()));
+        // store.dispatch( loadCompanyList( [{"companyCode":"FNWL"},{"companyCode":"SLIC"}]) );
+        // store.dispatch( toggleCompanyToPlot("FNWL") );
+        // unsubscribe();
     }
 
     handleClick = ( e, data ) => {

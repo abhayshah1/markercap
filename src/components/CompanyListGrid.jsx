@@ -1,29 +1,32 @@
 import React, {Component} from 'react';
 import {Grid, Checkbox} from 'semantic-ui-react';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {loadCompanyList, toggleCompanyToPlot} from '../actions/Action';
+import {upgradeApp} from '../reducers/Reducer';
 
 class CompanyListGrid extends Component {
 
-    constructor(props) {
+    constructor( props ) {
         super(props);
-        this.state = {
-            companyList : []
-        }
     }
 
     componentDidMount() {
         // make an ajax call to get a list of companies
         axios.get(process.env.REACT_APP_CUSTOMERLIST_URL)
         .then( res => {
-            this.setState( {companyList : res.data});
+            //this.setState( {companyList : res.data});
+            this.props.dispatch(loadCompanyList(res.data));
         });
-        console.log( store.getState() );
     }
 
     render() {
-        var checkboxlist = this.state.companyList.map((company) =>
-            <div><Checkbox label={company.name}/><br/></div>
-        );
+        var checkboxlist = null;
+        if ( this.props.companyList !== undefined ) {
+            checkboxlist = this.props.companyList.map((company) =>
+                <div><Checkbox label={company.name}/><br/></div>
+            );
+        }
         return (
             <Grid container columns={1}>
                 <Grid.Column>
@@ -35,4 +38,10 @@ class CompanyListGrid extends Component {
 
 }
 
-export default CompanyListGrid;
+const mapStateToProps = (state) => {
+    return {
+        companyList : state.companyDeviationPlot.companyList
+    }
+}
+
+export default connect(mapStateToProps) (CompanyListGrid);

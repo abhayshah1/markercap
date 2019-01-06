@@ -1,22 +1,20 @@
 import { combineReducers } from 'redux';
-import { ADD_COMPANY_TO_PLOT, REMOVE_COMPANY_FROM_PLOT } from '../actions/Action.js'
+import { TOGGLE_COMPANY_TO_PLOT, LOAD_COMPANY_LIST } from '../actions/Action.js'
 
 const initialState = {
     // list of companies that have been selected to be drawn
     // this should be an array of objects with the following property
-    // {companyCode:<code>, plot:true/false}
-    companyList : []
+    // companyList : [
+    //      {code:<code>, plot:true/false}
+    // ]
+    companyList : [{"code":"None", "plot":false}]
 }
 
 function companyDeviationPlot( state = initialState, action ) {
     switch ( action.type ) {
-        case ADD_COMPANY_TO_PLOT:
-        case REMOVE_COMPANY_TO_PLOT:
-            // return Object.assign( {}, state, {
-            //     companyList : [
-            //         ...state.companyList, action.companyId
-            //     ]
-            // })
+        case LOAD_COMPANY_LIST:
+            return Object.assign({}, state, {companyList : action.companyList});
+        case TOGGLE_COMPANY_TO_PLOT:
             return state.companyList.map(
                 company =>
                     company.companyCode === action.companyCode ? { ...company, plot: !company.plot } : company
@@ -26,13 +24,6 @@ function companyDeviationPlot( state = initialState, action ) {
     }
 }
 
-function initializeCompanyList( state = initialState, action ) {
-    return Object.assign({}, state, {companyList : action.companyList});
-}
-
-const upgradeApp = combineReducers({
-    initializeCompanyList, 
+export const upgradeApp = combineReducers({
     companyDeviationPlot
 });
-
-export default upgradeApp;
