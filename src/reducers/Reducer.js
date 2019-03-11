@@ -7,7 +7,7 @@ const initialState = {
     // companyList : [
     //      {code:<code>, plot:true/false}
     // ]
-    companyList : [{"code":"None", "plot":false}]
+    companyList : [{"code":"None", "plot":false, "daterange":[], "data":[]}]
 }
 
 function companyDeviationPlot( state = initialState, action ) {
@@ -15,10 +15,12 @@ function companyDeviationPlot( state = initialState, action ) {
         case LOAD_COMPANY_LIST:
             return Object.assign({}, state, {companyList : action.companyList});
         case TOGGLE_COMPANY_TO_PLOT:
-            return state.companyList.map(
-                company =>
-                    company.companyCode === action.companyCode ? { ...company, plot: !company.plot } : company
-            )
+            return Object.assign({}, state, {companyList :
+                state.companyList.map(
+                    company =>
+                        company.code === action.companyPlotData.id ? { ...company, plot: !company.plot, daterange:action.companyPlotData.daterange, data:action.companyPlotData.data } : company
+                )}
+            );    
         default:
             return state;
     }

@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Line} from 'react-chartjs-2';
 import axios from 'axios';
 
 var symetraData = 
 {
 	label: "Symetra",
-	//data: [0, 0, 0, 5, 3, 0, 0],
+	data: [0, 0, 0, 5, 3, 0, 0],
 	fill: false,
 	backgroundColor: 'rgba(75,192,192,0.4)',
     borderColor: 'rgba(75,192,192,1)'
@@ -14,7 +15,7 @@ var symetraData =
 var farmersData = 		
 {
 	label: "Farmers",
-	//data: [10, 10, 15, 10, 10, 10, 9],
+	data: [10, 10, 15, 10, 10, 10, 9],
 	fill: false,
 	backgroundColor: 'rgba(100,100,192,0.4)',
     borderColor: 'rgba(100,100,192,1)'
@@ -29,7 +30,7 @@ var thresholdData =
 }
 
 var customerData = {
-	//labels: ["2/3/2018", "2/10/2018", "2/17/2018", "2/24/2018", "3/3/2018", "3/10/2018", "3/17/2018"]
+	labels: ["2/3/2018", "2/10/2018", "2/17/2018", "2/24/2018", "3/3/2018", "3/10/2018", "3/17/2018"]
 };
 
 var chartOptions = {
@@ -117,6 +118,8 @@ class DeviationLineChart extends Component {
 		}
 
 		newDataSets.push( thresholdData );
+		newDataSets.push( symetraData );
+		newDataSets.push( farmersData );
 		customerData.datasets = newDataSets;
 		this.setState( {chartData : customerData} );
 	}
@@ -131,4 +134,10 @@ class DeviationLineChart extends Component {
 
 }
 
-export default DeviationLineChart;
+const mapStateToProps = (state) => {
+    return {
+        companyList : state.companyDeviationPlot.companyList
+    }
+}
+
+export default connect(mapStateToProps, null) (DeviationLineChart);

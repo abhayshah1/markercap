@@ -19,7 +19,7 @@ class MarkerCapSection extends Component {
         return (
             <Grid container columns={2}>
                 <Grid.Column>
-                    <DeviationLineChart companyID={'NONE'}/>
+                    <DeviationLineChart/>
                 </Grid.Column>
                 <Grid.Column>
                     <CompanyListGrid/>
