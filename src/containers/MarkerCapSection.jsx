@@ -10,11 +10,6 @@ class MarkerCapSection extends Component {
         super(props);
     }
 
-
-    handleChange = (event, data) => {
-        this.setState({'companyID':data.value});
-    }
-
     render() {
         return (
             <Grid container columns={2}>

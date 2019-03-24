@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Grid, Checkbox} from 'semantic-ui-react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {loadCompanyList, toggleCompanyToPlot} from '../actions/Action';
+import {loadCompanyList, displayCompanyToPlot, removeCompanyFromPlot} from '../actions/Action';
 
 class CompanyListGrid extends Component {
 
@@ -18,8 +18,11 @@ class CompanyListGrid extends Component {
             // make an ajax call to get data for the selected data
             axios.get(process.env.REACT_APP_CUSTOMERDATA_URL+"/"+data.name)
             .then( res => {
-                this.props.toggleCompanyToPlot(res.data);
+                this.props.displayCompanyToPlot(res.data);
             })
+        }
+        else {
+            this.props.removeCompanyFromPlot(data.name);
         }
     }
 
@@ -57,7 +60,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     loadCompanyList,
-    toggleCompanyToPlot
+    displayCompanyToPlot,
+    removeCompanyFromPlot
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (CompanyListGrid);

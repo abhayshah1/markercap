@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { TOGGLE_COMPANY_TO_PLOT, LOAD_COMPANY_LIST } from '../actions/Action.js'
+import { DISPLAY_COMPANY_TO_PLOT, REMOVE_COMPANY_FROM_PLOT, LOAD_COMPANY_LIST } from '../actions/Action.js'
 
 const initialState = {
     // list of companies that have been selected to be drawn
@@ -14,13 +14,20 @@ function companyDeviationPlot( state = initialState, action ) {
     switch ( action.type ) {
         case LOAD_COMPANY_LIST:
             return Object.assign({}, state, {companyList : action.companyList});
-        case TOGGLE_COMPANY_TO_PLOT:
+        case DISPLAY_COMPANY_TO_PLOT:
             return Object.assign({}, state, {companyList :
                 state.companyList.map(
                     company =>
-                        company.code === action.companyPlotData.id ? { ...company, plot: !company.plot, daterange:action.companyPlotData.daterange, data:action.companyPlotData.data } : company
+                        company.code === action.companyPlotData.id ? { ...company, plot: true, daterange:action.companyPlotData.daterange, data:action.companyPlotData.data } : company
                 )}
-            );    
+            );
+        case REMOVE_COMPANY_FROM_PLOT:
+            return Object.assign({}, state, {companyList :
+                state.companyList.map(
+                    company =>
+                        company.code === action.companyID ? { ...company, plot: false } : company
+                )}
+            );
         default:
             return state;
     }
